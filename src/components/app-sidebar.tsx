@@ -1,13 +1,7 @@
 "use client";
 
 import * as React from "react";
-import {
-  FileText,
-  Phone,
-  Lightbulb,
-  ScrollText,
-  CreditCard
-} from "lucide-react";
+import {FileText, Phone, Lightbulb, ScrollText, CreditCard} from "lucide-react";
 
 import {NavMain} from "@/components/nav-main";
 import {NavUser} from "@/components/nav-user";
@@ -28,18 +22,18 @@ const data = {
   navMain: [
     {
       title: "Reclamos",
-      url: "/dashboard/nuevo-reclamo",
+      url: "/dashboard/reclamos",
       icon: FileText,
       items: [
         {
           title: "Nuevo Reclamo",
-          url: "/dashboard/nuevo-reclamo",
+          url: "/dashboard/reclamos/nuevo-reclamo",
         },
         {
           title: "Mis Reclamos",
-          url: "/dashboard/mis-reclamos",
-        }
-      ]
+          url: "/dashboard/reclamos/mis-reclamos",
+        },
+      ],
     },
     {
       title: "Teléfonos Útiles",
@@ -48,28 +42,28 @@ const data = {
       items: [
         {
           title: "Emergencias",
-          url: "/dashboard/telefonos#emergencias",
+          url: "/dashboard/telefonos/emergencias",
         },
         {
           title: "Servicios",
-          url: "/dashboard/telefonos#servicios", 
-        }
-      ]
+          url: "/dashboard/telefonos/servicios",
+        },
+      ],
     },
     {
       title: "Propuestas",
-      url: "/dashboard/nueva-propuesta",
+      url: "/dashboard/propuestas",
       icon: Lightbulb,
       items: [
         {
           title: "Nueva Propuesta",
-          url: "/dashboard/nueva-propuesta",
+          url: "/dashboard/propuestas/nueva-propuesta",
         },
         {
           title: "Mis Propuestas",
-          url: "/dashboard/mis-propuestas",
-        }
-      ]
+          url: "/dashboard/propuestas/mis-propuestas",
+        },
+      ],
     },
     {
       title: "Trámites",
@@ -78,13 +72,13 @@ const data = {
       items: [
         {
           title: "Iniciar Trámite",
-          url: "/dashboard/tramites/nuevo",
+          url: "/dashboard/tramites/inciar-tramite",
         },
         {
           title: "Mis Trámites",
-          url: "/dashboard/tramites/lista",
-        }
-      ]
+          url: "/dashboard/tramites/mis-tramites",
+        },
+      ],
     },
     {
       title: "Pagos",
@@ -93,15 +87,15 @@ const data = {
       items: [
         {
           title: "Realizar Pago",
-          url: "/dashboard/pagos/nuevo",
+          url: "/dashboard/pagos/realizar-pago",
         },
         {
           title: "Historial",
           url: "/dashboard/pagos/historial",
-        }
-      ]
-    }
-  ]
+        },
+      ],
+    },
+  ],
 };
 
 export function AppSidebar({...props}: React.ComponentProps<typeof Sidebar>) {
