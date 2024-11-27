@@ -47,6 +47,7 @@ const emergencyNumbers = [
 
 export default function EmergenciasPage() {
   const handleCall = (phoneNumber: string) => {
+    // eslint-disable-next-line react-compiler/react-compiler
     window.location.href = `tel:${phoneNumber}`;
   };
 
@@ -84,6 +85,7 @@ export default function EmergenciasPage() {
             <button
               key={index}
               className="text-left transition hover:scale-[1.02]"
+              type="button"
               onClick={() => handleCall(emergency.number)}
             >
               <Card>
