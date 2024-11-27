@@ -2,22 +2,15 @@
 
 import * as React from "react";
 import {
-  AudioWaveform,
-  BookOpen,
-  Bot,
-  Command,
-  Frame,
-  GalleryVerticalEnd,
-  Map,
-  PieChart,
-  Settings2,
-  SquareTerminal,
+  FileText,
+  Phone,
+  Lightbulb,
+  ScrollText,
+  CreditCard
 } from "lucide-react";
 
 import {NavMain} from "@/components/nav-main";
-import {NavProjects} from "@/components/nav-projects";
 import {NavUser} from "@/components/nav-user";
-import {TeamSwitcher} from "@/components/team-switcher";
 import {
   Sidebar,
   SidebarContent,
@@ -26,145 +19,99 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar";
 
-// This is sample data.
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
+    name: "Usuario",
+    email: "usuario@example.com",
+    avatar: "/avatars/default.jpg",
   },
-  teams: [
-    {
-      name: "Acme Inc",
-      logo: GalleryVerticalEnd,
-      plan: "Enterprise",
-    },
-    {
-      name: "Acme Corp.",
-      logo: AudioWaveform,
-      plan: "Startup",
-    },
-    {
-      name: "Evil Corp.",
-      logo: Command,
-      plan: "Free",
-    },
-  ],
   navMain: [
     {
-      title: "Playground",
-      url: "#",
-      icon: SquareTerminal,
-      isActive: true,
+      title: "Reclamos",
+      url: "/dashboard/nuevo-reclamo",
+      icon: FileText,
       items: [
         {
-          title: "History",
-          url: "#",
+          title: "Nuevo Reclamo",
+          url: "/dashboard/nuevo-reclamo",
         },
         {
-          title: "Starred",
-          url: "#",
-        },
-        {
-          title: "Settings",
-          url: "#",
-        },
-      ],
+          title: "Mis Reclamos",
+          url: "/dashboard/mis-reclamos",
+        }
+      ]
     },
     {
-      title: "Models",
-      url: "#",
-      icon: Bot,
+      title: "Teléfonos Útiles",
+      url: "/dashboard/telefonos",
+      icon: Phone,
       items: [
         {
-          title: "Genesis",
-          url: "#",
+          title: "Emergencias",
+          url: "/dashboard/telefonos#emergencias",
         },
         {
-          title: "Explorer",
-          url: "#",
-        },
-        {
-          title: "Quantum",
-          url: "#",
-        },
-      ],
+          title: "Servicios",
+          url: "/dashboard/telefonos#servicios", 
+        }
+      ]
     },
     {
-      title: "Documentation",
-      url: "#",
-      icon: BookOpen,
+      title: "Propuestas",
+      url: "/dashboard/nueva-propuesta",
+      icon: Lightbulb,
       items: [
         {
-          title: "Introduction",
-          url: "#",
+          title: "Nueva Propuesta",
+          url: "/dashboard/nueva-propuesta",
         },
         {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
-        },
-      ],
+          title: "Mis Propuestas",
+          url: "/dashboard/mis-propuestas",
+        }
+      ]
     },
     {
-      title: "Settings",
-      url: "#",
-      icon: Settings2,
+      title: "Trámites",
+      url: "/dashboard/tramites",
+      icon: ScrollText,
       items: [
         {
-          title: "General",
-          url: "#",
+          title: "Iniciar Trámite",
+          url: "/dashboard/tramites/nuevo",
         },
         {
-          title: "Team",
-          url: "#",
+          title: "Mis Trámites",
+          url: "/dashboard/tramites/lista",
+        }
+      ]
+    },
+    {
+      title: "Pagos",
+      url: "/dashboard/pagos",
+      icon: CreditCard,
+      items: [
+        {
+          title: "Realizar Pago",
+          url: "/dashboard/pagos/nuevo",
         },
         {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
-      ],
-    },
-  ],
-  projects: [
-    {
-      name: "Design Engineering",
-      url: "#",
-      icon: Frame,
-    },
-    {
-      name: "Sales & Marketing",
-      url: "#",
-      icon: PieChart,
-    },
-    {
-      name: "Travel",
-      url: "#",
-      icon: Map,
-    },
-  ],
+          title: "Historial",
+          url: "/dashboard/pagos/historial",
+        }
+      ]
+    }
+  ]
 };
 
 export function AppSidebar({...props}: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <TeamSwitcher teams={data.teams} />
+        <h2 className="px-4 text-lg font-semibold">Town Manager</h2>
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
