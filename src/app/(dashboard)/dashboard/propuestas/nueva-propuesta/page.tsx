@@ -129,6 +129,10 @@ export default function NuevaPropuestaPage() {
               </BreadcrumbItem>
               <BreadcrumbSeparator className="hidden md:block" />
               <BreadcrumbItem>
+                <BreadcrumbLink href="/dashboard/propuestas">Propuestas</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator className="hidden md:block" />
+              <BreadcrumbItem>
                 <BreadcrumbPage>Nueva Propuesta</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>

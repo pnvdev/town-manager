@@ -64,6 +64,10 @@ export default function ServiciosPage() {
               </BreadcrumbItem>
               <BreadcrumbSeparator className="hidden md:block" />
               <BreadcrumbItem>
+                <BreadcrumbLink href="/dashboard/telefonos">Teléfonos</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator className="hidden md:block" />
+              <BreadcrumbItem>
                 <BreadcrumbPage>Servicios</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>

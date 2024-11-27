@@ -64,6 +64,10 @@ export default function EmergenciasPage() {
               </BreadcrumbItem>
               <BreadcrumbSeparator className="hidden md:block" />
               <BreadcrumbItem>
+                <BreadcrumbLink href="/dashboard/telefonos">Teléfonos</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator className="hidden md:block" />
+              <BreadcrumbItem>
                 <BreadcrumbPage>Emergencias</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>

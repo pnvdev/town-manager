@@ -18,7 +18,16 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import {Separator} from "@/components/ui/separator";
+import {SidebarInset, SidebarTrigger} from "@/components/ui/sidebar";
 const formSchema = z.object({
   titulo: z.string().min(5, {
     message: "El título debe tener al menos 5 caracteres.",
@@ -79,74 +88,97 @@ export default function IniciarTramitePage() {
   }
 
   return (
-    <div className="container mx-auto p-6">
-      <div className="rounded-lg border bg-card text-card-foreground shadow">
-        <div className="p-6">
-          <h1 className="text-2xl font-semibold leading-none tracking-tight">
-            Iniciar Nuevo Trámite
-          </h1>
-          <Form {...form}>
-            <form className="mt-6 space-y-6" onSubmit={form.handleSubmit(onSubmit)}>
-              <FormField
-                control={form.control}
-                name="tipo"
-                render={({field}) => (
-                  <FormItem>
-                    <FormLabel>Tipo de Trámite</FormLabel>
-                    <Select defaultValue={field.value} onValueChange={field.onChange}>
+    <SidebarInset>
+      <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
+        <div className="flex items-center gap-2 px-4">
+          <SidebarTrigger className="-ml-1" />
+          <Separator className="mr-2 h-4" orientation="vertical" />
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem className="hidden md:block">
+                <BreadcrumbLink href="/dashboard">Dashboard</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator className="hidden md:block" />
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/dashboard/tramites">Trámites</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator className="hidden md:block" />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Iniciar Trámite</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </header>
+      <div className="container mx-auto p-6">
+        <div className="rounded-lg border bg-card text-card-foreground shadow">
+          <div className="p-6">
+            <h1 className="text-2xl font-semibold leading-none tracking-tight">
+              Iniciar Nuevo Trámite
+            </h1>
+            <Form {...form}>
+              <form className="mt-6 space-y-6" onSubmit={form.handleSubmit(onSubmit)}>
+                <FormField
+                  control={form.control}
+                  name="tipo"
+                  render={({field}) => (
+                    <FormItem>
+                      <FormLabel>Tipo de Trámite</FormLabel>
+                      <Select defaultValue={field.value} onValueChange={field.onChange}>
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Seleccione un tipo" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          <SelectItem value="licencia">Licencia de Construcción</SelectItem>
+                          <SelectItem value="permiso">Permiso de Funcionamiento</SelectItem>
+                          <SelectItem value="certificado">Certificado de Residencia</SelectItem>
+                          <SelectItem value="otro">Otro</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="titulo"
+                  render={({field}) => (
+                    <FormItem>
+                      <FormLabel>Título</FormLabel>
                       <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Seleccione un tipo" />
-                        </SelectTrigger>
+                        <Input placeholder="Ingrese el título del trámite" {...field} />
                       </FormControl>
-                      <SelectContent>
-                        <SelectItem value="licencia">Licencia de Construcción</SelectItem>
-                        <SelectItem value="permiso">Permiso de Funcionamiento</SelectItem>
-                        <SelectItem value="certificado">Certificado de Residencia</SelectItem>
-                        <SelectItem value="otro">Otro</SelectItem>
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="titulo"
-                render={({field}) => (
-                  <FormItem>
-                    <FormLabel>Título</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Ingrese el título del trámite" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="descripcion"
-                render={({field}) => (
-                  <FormItem>
-                    <FormLabel>Descripción</FormLabel>
-                    <FormControl>
-                      <Textarea
-                        className="resize-none"
-                        placeholder="Describa los detalles de su trámite"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <Button className="w-full" disabled={isLoading} type="submit">
-                {isLoading ? "Enviando..." : "Enviar Trámite"}
-              </Button>
-            </form>
-          </Form>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="descripcion"
+                  render={({field}) => (
+                    <FormItem>
+                      <FormLabel>Descripción</FormLabel>
+                      <FormControl>
+                        <Textarea
+                          className="resize-none"
+                          placeholder="Describa los detalles de su trámite"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <Button className="w-full" disabled={isLoading} type="submit">
+                  {isLoading ? "Enviando..." : "Enviar Trámite"}
+                </Button>
+              </form>
+            </Form>
+          </div>
         </div>
       </div>
-    </div>
+    </SidebarInset>
   );
 }

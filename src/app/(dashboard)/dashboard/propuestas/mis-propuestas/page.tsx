@@ -99,6 +99,10 @@ export default function MisPropuestasPage() {
               </BreadcrumbItem>
               <BreadcrumbSeparator className="hidden md:block" />
               <BreadcrumbItem>
+                <BreadcrumbLink href="/dashboard/propuestas">Propuestas</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator className="hidden md:block" />
+              <BreadcrumbItem>
                 <BreadcrumbPage>Mis Propuestas</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
