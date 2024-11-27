@@ -1,7 +1,25 @@
 "use client";
 
 import * as React from "react";
-import {FileText, Phone, Lightbulb, ScrollText, CreditCard} from "lucide-react";
+import {
+  AudioWaveform,
+  BookOpen,
+  Bot,
+  Command,
+  Frame,
+  GalleryVerticalEnd,
+  Map,
+  PieChart,
+  Settings2,
+  SquareTerminal,
+  FileText,
+  Phone,
+  Lightbulb,
+  ScrollText,
+  CreditCard,
+} from "lucide-react";
+
+import {TeamSwitcher} from "./team-switcher";
 
 import {NavMain} from "@/components/nav-main";
 import {NavUser} from "@/components/nav-user";
@@ -19,6 +37,23 @@ const data = {
     email: "usuario@example.com",
     avatar: "/avatars/default.jpg",
   },
+  teams: [
+    // {
+    //   name: "Acme Inc",
+    //   logo: GalleryVerticalEnd,
+    //   plan: "Enterprise",
+    // },
+    {
+      name: "Town Manager",
+      logo: AudioWaveform,
+      plan: "",
+    },
+    // {
+    //   name: "Evil Corp.",
+    //   logo: Command,
+    //   plan: "Free",
+    // },
+  ],
   navMain: [
     {
       title: "Reclamos",
@@ -102,7 +137,7 @@ export function AppSidebar({...props}: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <h2 className="px-4 text-lg font-semibold">Town Manager</h2>
+        <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
