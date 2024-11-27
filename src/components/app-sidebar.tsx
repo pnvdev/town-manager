@@ -107,7 +107,7 @@ const data = {
       items: [
         {
           title: "Iniciar Trámite",
-          url: "/dashboard/tramites/inciar-tramite",
+          url: "/dashboard/tramites/iniciar-tramite",
         },
         {
           title: "Mis Trámites",

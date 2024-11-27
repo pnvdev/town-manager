@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -142,7 +143,7 @@ export default function Page() {
 
           <Link
             className="group relative h-40 overflow-hidden rounded-xl border bg-card shadow-sm transition-all hover:scale-[1.02] hover:shadow-lg"
-            href="/dashboard/tramites/nuevo-tramite"
+            href="/dashboard/tramites/iniciar-tramite"
           >
             <div
               aria-hidden="true"
